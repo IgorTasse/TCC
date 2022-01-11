@@ -8,35 +8,37 @@
     <title>Painel de Controle</title>
     <link rel="stylesheet" href="estilos/style.css">
 </head>
-<body>
-    <!-- Redimensionamento da imagem de fundo 
-    <picture>
-        <source media="(max-width: 1050px )" srcset="imagens/media.png" type="image/png">
-        <source media="(max-width:750px )" srcset="imagens/pequena.png" type="image/png">
-        <img src="imagens/grande.png" alt="Imagem flexivel">
-    </picture>    -->
-    <header>
-        <h1>Trabalho de Conclusão de Curso</h1>
-    </header>
-    <form action="#" method="#">
-        <main>
-            <img id="topo" src="imagens/login.png" alt="Logo do IFG">
-            <h2 id="texto">Painel de Controle</h2>
-            <p class="paragrafo">Entre com os dados do usuário </p>
-                <div id="topo">
-                    <label>E-mail</label>
-                    <input type="email" name="login" placeholder=" Entre com o email de acesso...">
-                </div>
-                <div id="baixo">
-                    <label>Senha</label>
-                    <input type="password" name="senha" placeholder=" Entre com a senha de acesso...">
-                </div>
-            <button type="submit">Entrar</button>
-            <p class="paragrafo">Sistema de baixo custo para aquisição de dados e monitoramento de usinas FV.</p>
-        </main>
-    </form>
-    <footer>
-        <p>Este <strong>Sistema Web</strong> foi desenvolvido por <a href="https://igortasse.github.io/TCC/" target="_blank" class="externo"> Igor Tasse </a> para a realização do <strong>Trabalho de Conclusão de Curso</strong></p>
-    </footer>
-</body>
+<form action="logar.php" method="POST">
+    <body>
+        <!-- Redimensionamento da imagem de fundo
+        <picture>
+            <source media="(max-width: 1050px )" srcset="imagens/media.png" type="image/png">
+            <source media="(max-width:750px )" srcset="imagens/pequena.png" type="image/png">
+            <img src="imagens/grande.png" alt="Imagem flexivel">
+        </picture>    -->
+        <header>
+            <h1>Trabalho de Conclusão de Curso</h1>
+        </header>
+        <form action="#" method="#">
+            <main>
+                <img id="topo" src="imagens/login.png" alt="Logo do IFG">
+                <h2 id="texto">Painel de Controle</h2>
+                <p class="paragrafo">Entre com os dados do usuário </p>
+                    <div id="topo">
+                        <label>E-mail</label>
+                        <input type="email" name="login" placeholder=" Entre com o email de acesso...">
+                    </div>
+                    <div id="baixo">
+                        <label>Senha</label>
+                        <input type="password" name="senha" placeholder=" Entre com a senha de acesso...">
+                    </div>
+                <button type="submit">Entrar</button>
+                <p class="paragrafo">Sistema de baixo custo para aquisição de dados e monitoramento de usinas FV.</p>
+            </main>
+        </form>
+        <footer>
+            <p>Este <strong>Sistema Web</strong> foi desenvolvido por <a href="https://igortasse.github.io/TCC/" target="_blank" class="externo"> Igor Tasse </a> para a realização do <strong>Trabalho de Conclusão de Curso</strong></p>
+        </footer>
+    </body>
+</form>
 </html>
