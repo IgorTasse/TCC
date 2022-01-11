@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{ /*Raíz do programa (declaração de paleta de cores e Fontes)*/
+    --cor01:#4CBBF5;
+    --cor02:#47AEE6;
+    --cor03:#3F9BCC;
+    --cor04:#337EA6;
+    --cor05:#204D66;
+    --fonte-padrao:'Times New Roman', Times, Helvetica, serif;
+    --fonte-destaque: 'Rubik', sans-serif, cursive;
+}
+*{
+    padding: 0px; /*Retirando espaçamento interno*/
+    margin: 0px; /*Retirando espaçamento das margens*/
+}
+body{
+    background-image: linear-gradient(to left, var(--cor01), var(--cor05));
+}
+header{
+    background-image: linear-gradient(to left, var(--cor01), var(--cor05));
+    text-align: center; /*Texto alinhado ao centro*/
+    padding: 60px;
+    font-family: var(--fonte-destaque);
+    font-size: 1.1em;
+    font-weight: normal;
+    color: var(--cor01);
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.534);
+}
+main{
+    min-width: 360px;
+    max-width: 500px;
+    display: block;
+    margin: auto;
+    background-color: var(--cor01);
+    border-radius: 10px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.384);
+}
+main #texto{
+    font-family: var(--fonte-padrao);
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+main .paragrafo{
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 15px;
+}
+main img#topo{
+    max-width:100px ;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.301);
+}
+main > div#topo{
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+main > div#baixo{
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+main > div#topo> label{
+    font-family: var(--fonte-destaque);
+    font-weight: bold;
+    font-size: 0.5;
+    color: black;
+}
+main > div#baixo> label{
+    font-family: var(--fonte-destaque);
+    font-weight: bold;
+    font-size: 0.5;
+    color: black;
+}
+main > div > input{
+    outline: 0;
+    border-radius: 4px;
+    font-family: var(--fonte-padrao);
+    padding: 4px;
+    width: 100%;
+}
+main > button{
+    color: var(--cor01);
+    background-color: var(--cor05);
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+main > button:hover{
+    background-color: var(--cor04);
+}
+footer{
+    background-color: var(--cor05);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    font-family: var(--fonte-padrao);
+    padding: 8px;
+    margin-top: 40px;
+}
+a{
+    color: var(--cor03);
+    text-decoration: none;
+    font-weight: bolder;
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--cor01);
+}
+strong{
+    color: var(--cor03);
+}
+a.externo::after{
+    content: '\1F517\00A0' /*Adicionando emojis após os links*/
+}
