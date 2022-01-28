@@ -1,0 +1,92 @@
+:root{
+    --cor01:#709EEE;
+    --cor02:#286FEB;
+    --cor03:#1F57B8;
+    --cor04:#12336B;
+    --cor05:#32476B;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* Cabeçalho */
+.cabecalho{
+    background-color: var(--cor04);
+    padding: 30px;
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.452);
+}
+.cabecalho .navegacao ul{
+    padding: 5px;
+    background-color: var(--cor04);
+}
+.cabecalho .navegacao ul li{
+    display: inline;
+    position: relative;
+}
+.cabecalho .navegacao ul li a{
+    color: var(--cor01);
+    padding: 5px;
+    border-radius: 5px;
+    transition: ease-in-out 0.3s;
+    display: inline-block;
+}
+.cabecalho .navegacao ul li a:hover{
+    background-color: var(--cor03);
+}
+/*Sub-menu*/
+.cabecalho .navegacao ul ul{
+    display: none;
+    left: 0;
+    position: absolute;
+}
+.cabecalho .navegacao ul li:hover ul{
+    display: block;
+}
+.cabecalho .navegacao ul ul{
+    width: 150px;
+}
+.cabecalho .navegacao ul ul li a{
+    display: block;
+}
+/* Cabeçalho */
+/* Conteúdo */
+.corpo .conteudo{
+    max-width: 1500px;
+    background-color: var(--cor02);
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.452);
+    padding: 10px;
+    margin-bottom: 30px;
+}
+/* Conteúdo */
+/*Rodapé*/
+.rodape{
+    text-align: center;
+    background-color: var(--cor05);
+    padding: 15px;
+}
+.rodape .texto{
+    color: var(--cor02);
+}
+.rodape .texto a{
+    color: var(--cor01);
+}
+.rodape .texto a::after{
+    content: '\1F517\00A0';
+}
+.rodape .texto a:hover{
+    color: var(--cor02);
+}
+/*Rodapé*/

@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* Cabeçalho */
+.cabecalho{
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.425);
+    width: 100%;
+}
+.cabecalho .data{
+    padding: 25px 0;
+}
+.cabecalho .data .texto{
+    color: var(--cor01);
+    padding-left: 5px;
+    font-family: var(--fonte02);
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.cabecalho .data .botao{
+    padding: 3px;
+    margin-left: 30px;
+    background-color: var(--cor05);
+    transition: ease-in-out 0.3s;
+    color: var(--cor01);
+}
+.cabecalho .data .botao:hover{
+    background-color: var(--cor04);
+}
+/* Cabeçalho */
+/* Conteudo */
+.conteudo{
+    width: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.507);
+}
+.conteudo #curve_chart{
+    width: auto;
+    height: 500px;
+}
+/* Conteudo */

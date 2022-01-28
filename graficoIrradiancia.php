@@ -5,16 +5,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/tabela.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/css/styleGrafico.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
 </head>
 <body>
-    <header class="cabecalho">
-        <div class="titulo">
-            <h1 class ="texto">Entre com o intervalo de Datas desejado!</h1>
-        </div>
+<header class="cabecalho">
         <!-- Recebendo os dados do formulário -->
         <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT); //Filtrando os dados
@@ -29,7 +27,7 @@
                     }
                     ?>
                     <label class="texto">Data Inicial</label>
-                    <input class="caixa"type="date" name="data_inicio" value="<?php echo $data_inicio;?>"><br><br>
+                    <input type="date" name="data_inicio" value="<?php echo $data_inicio;?>">
                     <!-- Mantendo a data na caixa de pesquisa -->
                     <?php
                     $data_final = "";
@@ -38,38 +36,48 @@
                     }
                     ?>
                     <label class="texto">Data Final</label>
-                    <input class="caixa" type="date" name="data_final" value="<?php echo $data_final;?>"><br><br>
+                    <input type="date" name="data_final" value="<?php echo $data_final;?>">
                     <input class="botao" type="submit" value="Buscar" name="pesquisa_datas">
                 </div>
         </form>
     </header>
     <main class="conteudo">
-        <?php
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Data', 'Irradiância'],
+            <?php
             //Verificando se o usuário clicou no botão
             if(!empty($dados['pesquisa_datas'])){
             // Selecionando os dados da tabela medidas que serão mostrados no período de data determinado
-                $query_medidas = "SELECT irradiancia,temperaturaAmbiente,temperaturaPlaca,potencia,created FROM medidas WHERE created BETWEEN :data_inicio AND :data_final";
-                $resultado = $pdo->prepare($query_medidas); //Preparando busca
+                $query_temperaturas = "SELECT Irradiancia,created FROM medidas WHERE created BETWEEN :data_inicio AND :data_final";
+                $resultado = $pdo->prepare($query_temperaturas); //Preparando busca
                 $resultado->bindParam(':data_inicio',$dados['data_inicio']);
                 $resultado->bindParam(':data_final',$dados['data_final']);
                 $resultado->execute();
            
-            // Criando tabela de medidas e imprimindo na tela
-                echo " <table border =\"1\"> ";
-                echo "<tr> <th>Irradiância (W m^2)</th> <th>Potência (W)</th> <th>Temperatura da Placa (ºC)</th> <th>Temperatura Ambiente (ºC)</th> <th>Data e Hora</th> </tr>";
                 while($row_medidas = $resultado->fetch(PDO::FETCH_ASSOC)){
-                    extract($row_medidas);
-                    echo "<tr>";
-                    echo "<td> $irradiancia </td>";
-                    echo "<td> $temperaturaAmbiente </td>";
-                    echo "<td> $temperaturaPlaca </td>";
-                    echo "<td> $potencia </td>";
-                    echo "<td>". date('d/m/Y H:i:s', strtotime($created))."</td>";
-                    echo "<tr>";
-                }
-                    echo "</table>";
-            }
-        ?>
-</main>
+
+
+            ?>
+              ['<?php echo"".$row_medidas['created']; ?>',<?php echo"".$row_medidas['Irradiancia']?>],
+              <?php }}?>
+            ]);
+
+            var options = {
+              title: 'Irradiância',
+              curveType: 'function',
+              legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+          }
+    </script>
+        <div id="curve_chart""></div>
 </body>
 </html>

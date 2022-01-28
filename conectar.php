@@ -1,5 +1,6 @@
 <!-- Realizando a conexão com o Banco de Dados MySQL -->
 <?php 
+session_start(); //Iniciando sessão
 $host = "localhost"; //Servidor onde está o Banco de Dados
 $usuario = "root"; //Usuário padrão do Banco de Dados
 $senha = ""; //Senha padrão do Banco de Dados
